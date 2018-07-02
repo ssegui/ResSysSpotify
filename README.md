@@ -1,5 +1,9 @@
 # ResSysSpotify
 
+STEPS 1:
+save "challenge_set.json" into "utils_spotify" folder
+
+STEPS 2:CREATE DICTIONARY AND MODELS used in the final recommender function
 ## CODE
 ### 1_MPD_id_trackuri_maker.ipynb
 
