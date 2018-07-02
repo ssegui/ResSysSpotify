@@ -108,44 +108,6 @@ def evaluate(solution,recommendations):
     print(round(sum(result)/len(result),3))
     return round(sum(result)/len(result),3)
 
-def eval_fake(recsys_method,num,title_tracks,dict_trackuri_id,dict_id_trackuri):
-    path1 = "../test_sets/fake_set.json"
-    path2 = "../test_sets/solutions_fake_set.json"
-    
-    if num == -1: 
-        num_from,num_to=0,10000 
-    
-    elif num == 0: 
-        num_from,num_to=0,999
-    
-    elif num == 1:
-        num_from,num_to=1000,1049
-    
-    elif num == 5:
-        num_from,num_to=2000,2999
-    # 5 SAMPLE NO TITLE
-    elif num == 6:
-        num_from,num_to=8000,8999          
-    
-    elif num == 10:
-        num_from,num_to=3000,3999
-    # 10 SAMPLE NO TITLE
-    elif num == 11:
-        num_from,num_to=8000,9999
-    elif num == 25:
-        num_from,num_to=4000,4999
-    elif num == 100:
-        num_from,num_to=6000,6999
-    print(    num_from,num_to)    
-    return process_fake_set(recsys_method,path1,path2, num_from, num_to,title_tracks ,dict_trackuri_id,dict_id_trackuri)
-
-
-def write_csv(name,recomendations):
-    with open('../submissions/'+name+'.csv', 'w', newline='') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)  
-        spamwriter.writerow(["team_info","main","Los Playlistos","hanevat@gmail.com"])
-        for pid in recomendations: #range (100):
-            spamwriter.writerow([pid]+recomendations[pid])
 
 # load challenge set            
 def load_challenge_set():
@@ -155,20 +117,7 @@ def load_challenge_set():
     f.close()
     challange_set = json.loads(js)
     return challange_set
-# load FAKE set  
-def load_fake_set(path_train_set,path_eval_set,num_from,num_to):
-    
-    f = open(path_train_set)
-    js = f.read()
-    f.close()
-    fake_set = json.loads(js)
-    fake_set = fake_set[num_from:num_to] # take specific tracks for a faster evaluation
-    
-    f = open(path_eval_set)
-    js = f.read()
-    f.close()
-    solution = json.loads(js)
-    return fake_set,solution
+
     
     
 # recommends tracks to original challange set and writes them in a csv
@@ -186,25 +135,6 @@ def process_challenge_set(recsys_method,name,dict_trackuri_id,dict_id_trackuri,t
     write_csv(name,final_recomendations) 
 
     
- # recommends tracks to fake set and evaluates the result 
-def process_fake_set(recsys_method,path_fake_set, path_fake_set_solutions, num_from, num_to,title_tracks,dict_trackuri_id,dict_id_trackuri):   
-    
-    reco = {}
-    final = {}            # 500 final recommendations track_uri
-    final_ids = {}
-    seeds = {}            # dict to keep the original seeds
-    
-    recommendations = {}  # recommendations in ID given by model
-    
-    fake_set,solution_fake_set = load_fake_set(path_fake_set,path_fake_set_solutions,num_from, num_to)
-        
-    for playlist in tqdm_notebook(fake_set):
-        recommendations = recsys_method(playlist,title_tracks,recommendations)
-        seeds[playlist["pid"]]=[ str(dict_trackuri_id[track["track_uri"]]) for track in playlist["tracks"]] 
-             
-    #print("evaluating...")
-    final_recommendations = result_to_trackuri(recommendations,seeds,dict_id_trackuri)
-    return evaluate(solution_fake_set,final_recommendations) 
 
 # convert id to trackruri and delete seeds and repeated tracks
 # this function orders the tracks by popularity (id) before converting them to track uri 
