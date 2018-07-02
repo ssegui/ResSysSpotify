@@ -111,7 +111,7 @@ def evaluate(solution,recommendations):
 
 # load challenge set            
 def load_challenge_set():
-    path_challenge_set = "../challenge_set.json"
+    path_challenge_set = "utils_spotify/challenge_set.json"
     f = open(path_challenge_set)
     js = f.read()
     f.close()
