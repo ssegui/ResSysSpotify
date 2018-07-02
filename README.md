@@ -1,6 +1,6 @@
 # ResSysSpotify
 
-## 1_MPD_id_trackuri_maker.ipynb
+* 1_MPD_id_trackuri_maker.ipynb
 
 ## 2_common_titles_and_tracks_maker.ipynb
 
