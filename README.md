@@ -9,5 +9,5 @@
 * 4_word2vec_tracks.ipynb	
 * 5_word2vec_titles.ipynb
 
-* create_final_submission.ipynb
+*create_final_submission.ipynb
 runs and create submission
