@@ -16,7 +16,8 @@ RUN:
 
 -- trained models and dictionaries can be downloaded from [here] 
 
-## STEP 3: RUN all notebooke "create_final_submission.ipynb" to create submission
+## STEP 3: 
+1. RUN all notebook "create_final_submission.ipynb" to create submission
 
 
 ### License
