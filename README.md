@@ -1,6 +1,9 @@
 # RecSysSpotify
 
 
+Los playlistos Team: Anna Bach, Jose Mena, Guillem Pascual, Oriol Pujol, Jordi Vitrià and Santi Seguí
+Univerisy of Barcelona.
+you can send us an email at santi.segui@ub.com.
 
 ## STEP 1: Obtaining The Data
 1. Download Spotify's official [dataset](recsys-challenge.spotify.com/dataset) and place the 'data' folder into the root folder of the project. 
