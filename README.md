@@ -22,8 +22,8 @@ RUN:
 + 3_MPD_line_sentences_maker.ipynb
 + 4_word2vec_tracks.ipynb	
 + 5_word2vec_titles.ipynb
++ 6_word2vec_artists.ipynb
 
--- trained models and dictionaries can be downloaded from [here] 
 
 ## STEP 3: 
 1. RUN all notebook "create_final_submission.ipynb" to create submission
