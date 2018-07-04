@@ -3,7 +3,7 @@
 
 Los playlistos Team: Anna Bach, Jose Mena, Guillem Pascual, Oriol Pujol, Jordi Vitrià and Santi Seguí
 Univerisy of Barcelona.
-you can send us an email at santi.segui@ub.com.
+you can send us an email at santi.segui@ub.edu.
 
 ## REQUIREMENTS:
 - Python >=3.5
